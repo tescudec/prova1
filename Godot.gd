@@ -51,7 +51,7 @@ func _process(delta):
 
 func _on_Personatge_area_entered(area):
 	modulate = Color(1,0,0)
-
-
+#	$Godot.rotation_degrees = 45
 func _on_Personatge_area_exited(area):
 	modulate = Color(1,1,1)
+#	$Godot.rotation_degrees = -45
