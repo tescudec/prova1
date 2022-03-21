@@ -1,26 +1,39 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Imatges/icon.png" type="Texture" id=1]
+[ext_resource path="res://platformer-pack-redux-360-assets/PNG/Enemies/slimeBlue.png" type="Texture" id=1]
 [ext_resource path="res://KineBody.gd" type="Script" id=2]
+[ext_resource path="res://platformer-pack-redux-360-assets/PNG/Enemies/slimeBlue_dead.png" type="Texture" id=3]
+[ext_resource path="res://platformer-pack-redux-360-assets/PNG/Enemies/slimeBlue_hit.png" type="Texture" id=4]
+[ext_resource path="res://platformer-pack-redux-360-assets/PNG/Enemies/slimeBlue_move.png" type="Texture" id=5]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 0.228907, 8.81634 )
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "camina",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 15.0
+height = 18.0
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
-scale = Vector2( 9.64716, 0.307093 )
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.0797611, 2.49362 )
-texture = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 1, -22 )
+scale = Vector2( 0.582031, 0.582031 )
+frames = SubResource( 1 )
+animation = "camina"
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = -3.14159
-scale = Vector2( 11.2055, -9.19756 )
-shape = SubResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
+position = Vector2( 2, 0 )
+rotation = 1.5708
+shape = SubResource( 2 )

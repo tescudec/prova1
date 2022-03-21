@@ -17,19 +17,14 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	velocitat.x = 150
-	if Input.is_action_pressed("mou dreta"):
-		velocitat += Vector2.RIGHT
-	if Input.is_action_pressed("mou esquerra"):
-		velocitat += Vector2.LEFT
 	if Input.is_action_just_pressed("mou amunt") and is_on_floor():
-		rotation_degrees += 90
 		velocitat += salt
-	if Input.is_action_pressed("mou avall"):
-		velocitat += Vector2.DOWN
 	velocitat += gravetat * delta
 	velocitat = move_and_slide(velocitat, Vector2.UP)
 
-
-
+func anima(velocitat: Vector2):
+	var animacio = $AnimatedSprite
+	animacio.flip_h = true
+	animacio.play('camina')
 func _on_Portal_body_entered(body):
 	get_tree().change_scene("res://2a.tscn")
