@@ -3,7 +3,7 @@
 [ext_resource path="res://KineBody.tscn" type="PackedScene" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 344.5, 21.75 )
+extents = Vector2( 349, 19.875 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 28.25, 21.75 )
@@ -15,14 +15,15 @@ extents = Vector2( 21.75, 8.5 )
 position = Vector2( 1, 1 )
 
 [node name="KinematicBody2D" parent="." instance=ExtResource( 1 )]
-position = Vector2( 29, 161 )
+position = Vector2( 29, 386 )
 
 [node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
-position = Vector2( 484, 140 )
+position = Vector2( -117, -385 )
+anchor_mode = 0
 current = true
 
 [node name="Terra2" type="StaticBody2D" parent="."]
-position = Vector2( 31, 101 )
+position = Vector2( 26, 166 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -38,7 +39,7 @@ position = Vector2( 316.375, 334.25 )
 shape = SubResource( 1 )
 
 [node name="Terra4" type="StaticBody2D" parent="."]
-position = Vector2( -636, 63 )
+position = Vector2( -641, 128 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -57,7 +58,7 @@ position = Vector2( 965.75, 332.25 )
 shape = SubResource( 2 )
 
 [node name="Terra5" type="StaticBody2D" parent="."]
-position = Vector2( -131, 62 )
+position = Vector2( -136, 127 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -76,7 +77,7 @@ position = Vector2( 965.75, 332.25 )
 shape = SubResource( 2 )
 
 [node name="Terra6" type="StaticBody2D" parent="."]
-position = Vector2( -390, 11 )
+position = Vector2( -395, 76 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -95,7 +96,7 @@ position = Vector2( 965.75, 332.25 )
 shape = SubResource( 2 )
 
 [node name="Terra7" type="StaticBody2D" parent="."]
-position = Vector2( -474, -32 )
+position = Vector2( -479, 33 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -114,7 +115,7 @@ position = Vector2( 965.75, 332.25 )
 shape = SubResource( 2 )
 
 [node name="Terra8" type="StaticBody2D" parent="."]
-position = Vector2( -563, 12 )
+position = Vector2( -568, 77 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -133,7 +134,7 @@ position = Vector2( 965.75, 332.25 )
 shape = SubResource( 2 )
 
 [node name="Terra9" type="StaticBody2D" parent="."]
-position = Vector2( -322, 11 )
+position = Vector2( -327, 76 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -152,24 +153,24 @@ position = Vector2( 965.75, 332.25 )
 shape = SubResource( 2 )
 
 [node name="Terra3" type="StaticBody2D" parent="."]
-position = Vector2( 831, 100 )
+position = Vector2( 826, 165 )
 
 [node name="ColorRect" type="ColorRect" parent="Terra3"]
 margin_left = -24.0
 margin_top = 314.0
-margin_right = 663.0
+margin_right = 1653.0
 margin_bottom = 354.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terra3"]
-position = Vector2( 320.5, 334.25 )
+position = Vector2( 325, 334.125 )
 shape = SubResource( 1 )
 
 [node name="Portal" type="Area2D" parent="."]
+position = Vector2( -5, 65 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal"]
 position = Vector2( 1017, 385 )
 rotation = 1.60994
 shape = SubResource( 3 )
 
-[connection signal="area_entered" from="Portal" to="KinematicBody2D" method="_on_Portal_area_entered"]
 [connection signal="body_entered" from="Portal" to="KinematicBody2D" method="_on_Portal_body_entered"]

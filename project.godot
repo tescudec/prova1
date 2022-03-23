@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="1r JOC"
-run/main_scene="res://joc.tscn"
+run/main_scene="res://Terra.tscn"
 config/icon="res://Imatges/icon.png"
 
 [input]

@@ -1,0 +1,11 @@
+[gd_scene format=2]
+
+[node name="EscenaCongrats" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 35.0
+margin_top = 482.0
+margin_right = 356.0
+margin_bottom = 503.0
+tab_size = 11
+text = "FELICITATS! HAS COMPLETAT EL JOC AMB ÈXIT"

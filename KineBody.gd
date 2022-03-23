@@ -10,6 +10,7 @@ var direccio = Vector2 (0,0)
 var gravetat = Vector2.DOWN * 1000
 var salt = Vector2.UP * 350
 var rotacio = 0
+var posicio = position
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rotation_degrees = rotacio
@@ -26,5 +27,7 @@ func anima(velocitat: Vector2):
 	var animacio = $AnimatedSprite
 	animacio.flip_h = true
 	animacio.play('camina')
+
 func _on_Portal_body_entered(body):
 	get_tree().change_scene("res://2a.tscn")
+
