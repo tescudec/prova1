@@ -22,7 +22,10 @@ func _physics_process(delta):
 		velocitat += salt
 	velocitat += gravetat * delta
 	velocitat = move_and_slide(velocitat, Vector2.UP)
-
+	if position.y > 620:
+		get_tree().change_scene("res://EscenaF.tscn")
+	if Input.is_action_just_pressed('quit'):
+		get_tree().quit()
 func anima(velocitat: Vector2):
 	var animacio = $AnimatedSprite
 	animacio.flip_h = true
@@ -30,4 +33,6 @@ func anima(velocitat: Vector2):
 
 func _on_Portal_body_entered(body):
 	get_tree().change_scene("res://2a.tscn")
-
+func _on_Congrats_body_entered(body):
+	get_tree().change_scene("res://EscenaCongrats.tscn")
+	

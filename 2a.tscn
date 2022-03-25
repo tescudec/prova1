@@ -14,7 +14,7 @@ extents = Vector2( 234.341, 9.49908 )
 [node name="Node2D" type="Node2D"]
 
 [node name="KinematicBody2D" parent="." instance=ExtResource( 1 )]
-position = Vector2( 33, 458 )
+position = Vector2( 30, 458 )
 
 [node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
 position = Vector2( -103, -457 )
@@ -57,7 +57,7 @@ position = Vector2( 965.75, 332.25 )
 shape = SubResource( 2 )
 
 [node name="Terra5" type="StaticBody2D" parent="."]
-position = Vector2( -129, 121 )
+position = Vector2( -136, 120 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -171,9 +171,8 @@ shape = SubResource( 1 )
 position = Vector2( 2, 59 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Congrats"]
-position = Vector2( 1022, 181 )
+position = Vector2( 1025, 175 )
 rotation = 1.60994
-scale = Vector2( 1, 1 )
 shape = SubResource( 3 )
 
 [connection signal="body_entered" from="Congrats" to="KinematicBody2D" method="_on_Congrats_body_entered"]
