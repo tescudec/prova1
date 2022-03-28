@@ -13,14 +13,14 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 1 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "camina",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "caure",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "camina",
 "speed": 5.0
 } ]
 
@@ -36,7 +36,6 @@ position = Vector2( 2, -22 )
 scale = Vector2( 0.582031, 0.582031 )
 frames = SubResource( 1 )
 animation = "camina"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

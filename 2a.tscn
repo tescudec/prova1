@@ -1,15 +1,28 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://KineBody.tscn" type="PackedScene" id=1]
+[ext_resource path="res://KinematicBody2Dfinal.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 347.625, 20.625 )
+extents = Vector2( 444.25, 20.625 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 28.25, 21.75 )
 
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 112.375, 20.5 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 78, 20.5 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 10, 17.5 )
+
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 234.341, 9.49908 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 54, 12.25 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -28,13 +41,13 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="Terra2"]
-margin_left = -32.0
+margin_left = -228.0
 margin_top = 314.0
 margin_right = 663.0
 margin_bottom = 354.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terra2"]
-position = Vector2( 315.375, 335 )
+position = Vector2( 217.5, 335 )
 shape = SubResource( 1 )
 
 [node name="Terra4" type="StaticBody2D" parent="."]
@@ -133,7 +146,7 @@ position = Vector2( 965.75, 332.25 )
 shape = SubResource( 2 )
 
 [node name="Terra9" type="StaticBody2D" parent="."]
-position = Vector2( -252, 57 )
+position = Vector2( -331, 13 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -152,27 +165,69 @@ position = Vector2( 965.75, 332.25 )
 shape = SubResource( 2 )
 
 [node name="Terra3" type="StaticBody2D" parent="."]
-position = Vector2( 833, 159 )
+position = Vector2( 830, 163 )
+
+[node name="ColorRect" type="ColorRect" parent="Terra3"]
+margin_left = -28.0
+margin_top = 311.0
+margin_right = 196.0
+margin_bottom = 351.0
+rect_pivot_offset = Vector2( 215, 31 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="ColorRect" type="ColorRect" parent="Terra3"]
-margin_left = -31.0
-margin_top = 314.0
-margin_right = 663.0
-margin_bottom = 354.0
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Terra3"]
-position = Vector2( 316.375, 334.625 )
-shape = SubResource( 1 )
+position = Vector2( 83.625, 331.5 )
+shape = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Terra3"]
+position = Vector2( 355, 331.5 )
+shape = SubResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ColorRect2" type="ColorRect" parent="Terra3"]
+margin_left = 278.0
+margin_top = 311.0
+margin_right = 433.0
+margin_bottom = 351.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Terra3"]
+position = Vector2( 183, 36 )
+shape = SubResource( 7 )
 
 [node name="Congrats" type="Area2D" parent="."]
 position = Vector2( 2, 59 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Congrats"]
-position = Vector2( 1025, 175 )
+position = Vector2( 1204, 179 )
 rotation = 1.60994
 shape = SubResource( 3 )
+
+[node name="KinematicBody2D2" type="KinematicBody2D" parent="."]
+motion/sync_to_physics = true
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D2"]
+position = Vector2( 1013, 421 )
+rotation = 1.5708
+shape = SubResource( 6 )
+
+[node name="ColorRect" type="ColorRect" parent="KinematicBody2D2/CollisionShape2D"]
+margin_left = -54.0
+margin_top = -13.0
+margin_right = 54.0
+margin_bottom = 12.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [connection signal="body_entered" from="Congrats" to="KinematicBody2D" method="_on_Congrats_body_entered"]
