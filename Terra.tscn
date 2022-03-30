@@ -171,7 +171,6 @@ position = Vector2( -5, 65 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal"]
 position = Vector2( 1193, 388 )
 rotation = 1.60994
-scale = Vector2( 1, 1 )
 shape = SubResource( 3 )
 
 [node name="Terra10" type="StaticBody2D" parent="."]

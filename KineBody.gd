@@ -30,7 +30,8 @@ func anima(velocitat: Vector2):
 	var animacio = $AnimatedSprite
 	animacio.flip_h = true
 	animacio.play('camina')
-
+	if Input.is_action_pressed("mou avall"):
+		animacio.play('caure')
 func _on_Portal_body_entered(body):
 	get_tree().change_scene("res://2a.tscn")
 func _on_Congrats_body_entered(body):
