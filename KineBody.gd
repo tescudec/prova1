@@ -11,29 +11,42 @@ var gravetat = Vector2.DOWN * 1000
 var salt = Vector2.UP * 350
 var rotacio = 0
 var posicio = position
+onready var animacio = $AnimatedSprite
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rotation_degrees = rotacio
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	velocitat.x = 150
+	
 	if Input.is_action_just_pressed("mou amunt") and is_on_floor():
 		velocitat += salt
 	velocitat += gravetat * delta
-	velocitat = move_and_slide(velocitat, Vector2.UP)
+	
 	if position.y > 620:
 		get_tree().change_scene("res://EscenaF.tscn")
 	if Input.is_action_just_pressed('quit'):
 		get_tree().quit()
-func anima(velocitat: Vector2):
+	if Input.is_action_pressed("mou avall"):
+		animacio.play('caure')
+		velocitat.x = 75
+	else:
+		animacio.play('camina')
+		velocitat.x = 150
+	
+	velocitat = move_and_slide(velocitat, Vector2.UP)
+	
+func anima(_velocitat: Vector2):
 	var animacio = $AnimatedSprite
 	animacio.flip_h = true
 	animacio.play('camina')
-	if Input.is_action_pressed("mou avall"):
-		animacio.play('caure')
+	
 func _on_Portal_body_entered(body):
 	get_tree().change_scene("res://2a.tscn")
 func _on_Congrats_body_entered(body):
 	get_tree().change_scene("res://EscenaCongrats.tscn")
 	
+
+
+func _on_Area2D_body_entered(body):
+	get_tree().change_scene("res://EscenaF.tscn")
